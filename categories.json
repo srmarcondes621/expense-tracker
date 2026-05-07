@@ -37,6 +37,14 @@
       "keywords": ["aluguel", "condomínio", "condominio", "luz", "água", "agua", "gás", "gas", "internet", "celular", "tv a cabo", "tvcabo", "net", "vivo", "neguinha"]
     },
     {
+      "name": "Guardiões",
+      "keywords": ["guardiões", "guardioes", "guardiao", "guardião"]
+    },
+    {
+      "name": "Prevent",
+      "keywords": ["prevent"]
+    },
+    {
       "name": "Outros",
       "keywords": []
     }

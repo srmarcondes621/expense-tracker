@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-07T17:21:05.194Z",
+  "updatedAt": "2026-05-07T18:36:00.000Z",
   "entries": [
     {
       "id": "0ab9e3b1-204f-4a08-9f2a-6f2bf3a4f101",
@@ -127,6 +127,26 @@
       "description": "Mercado Santander",
       "amount": 236,
       "category": "Alimentação",
+      "cycleKey": "2026-04",
+      "tags": [
+        "Santander"
+      ]
+    },
+    {
+      "id": "8f8a58bb-88d2-4f89-8ece-8f4bf7dd8570",
+      "date": "2026-05-06T12:00:00.000Z",
+      "description": "Guardiões",
+      "amount": 4334,
+      "category": "Guardiões",
+      "cycleKey": "2026-04",
+      "tags": []
+    },
+    {
+      "id": "a18f48cd-9c62-4ceb-9124-e3426dd2f63b",
+      "date": "2026-05-08T12:00:00.000Z",
+      "description": "Prevent",
+      "amount": 1225,
+      "category": "Prevent",
       "cycleKey": "2026-04",
       "tags": [
         "Santander"

@@ -278,6 +278,10 @@
     }).format(n);
   }
 
+  function formatCycleNumber(n) {
+    return String(Math.round(Number(n) || 0));
+  }
+
   function formatDateTime(iso) {
     const d = new Date(iso);
     return new Intl.DateTimeFormat("pt-BR", {
@@ -399,7 +403,7 @@
     for (const [cat, total] of groups) {
       sum += total;
       const tr = document.createElement("tr");
-      tr.innerHTML = `<td>${escapeHtml(cat)}</td><td class="num">${formatMoney(total)}</td>`;
+      tr.innerHTML = `<td>${escapeHtml(cat)}</td><td class="num">${formatCycleNumber(total)}</td>`;
       els.totalsBody.appendChild(tr);
     }
     if (groups.length === 0) {
@@ -417,16 +421,16 @@
       if (entryHasTag(e, "Cartao Sergio")) cartaoSergioSum += e.amount;
       if (entryHasTag(e, "Santander")) santanderSum += e.amount;
     }
-    if (els.simoneTotal) els.simoneTotal.textContent = formatMoney(simoneSum);
+    if (els.simoneTotal) els.simoneTotal.textContent = formatCycleNumber(simoneSum);
     if (els.cartaoSergioTotal)
-      els.cartaoSergioTotal.textContent = formatMoney(cartaoSergioSum);
+      els.cartaoSergioTotal.textContent = formatCycleNumber(cartaoSergioSum);
     if (els.santanderTotal)
-      els.santanderTotal.textContent = formatMoney(santanderSum);
+      els.santanderTotal.textContent = formatCycleNumber(santanderSum);
     if (els.tagsTotal) {
       const tagsSum = simoneSum + cartaoSergioSum + santanderSum;
-      els.tagsTotal.textContent = formatMoney(tagsSum);
+      els.tagsTotal.textContent = formatCycleNumber(tagsSum);
     }
-    els.grandTotal.textContent = formatMoney(sum);
+    els.grandTotal.textContent = formatCycleNumber(sum);
   }
 
   function escapeHtml(s) {
