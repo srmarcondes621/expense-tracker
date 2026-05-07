@@ -70,6 +70,11 @@ Copie de [`.env.example`](.env.example):
 - No **GET**, entradas antigas sem `tags` recebem a etiqueta automaticamente se a descrição casar com a regra.
 - O subtotal **Simone (marcados)** na tabela é sempre para o **mesmo ciclo** selecionado nas abas (período 10 → 9).
 
+### Tag Cartao Sergio
+
+- Se a descrição contiver **`cartao sergio`** (aceitando maiúsculas/minúsculas e acentos como `cartão sérgio` ou `cartäo sergio`), o lançamento recebe a tag `Cartao Sergio`.
+- A detecção é feita no servidor (mesma lógica das demais tags).
+
 ### Formato da linha
 
 - O **último** `-` separa descrição e valor (ex.: `Nome longo - item- 12,50`).
