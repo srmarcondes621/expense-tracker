@@ -37,11 +37,6 @@
           <p class="error" id="error-msg" role="alert" hidden></p>
         </section>
 
-        <section aria-label="Lista de lançamentos" class="panel entries-panel">
-          <h2>Últimos lançamentos</h2>
-          <ul class="entries-list" id="entries-list"></ul>
-        </section>
-
         <section aria-label="Consolidação" class="panel consolidation">
           <div class="consolidation-head">
             <p class="consolidation-title">Ciclo (10 → 9)</p>
@@ -55,9 +50,6 @@
               Período: do dia 10 ao dia 9 do mês seguinte. Dados: repositório GitHub
               (via API).
             </p>
-            <button type="button" class="btn-secondary" id="export-csv">
-              Exportar CSV
-            </button>
           </div>
           <div class="table-wrap">
             <table class="totals-table" id="totals-table">
@@ -85,9 +77,21 @@
                   <th scope="row">Santander</th>
                   <th class="num" id="santander-total">R$ 0,00</th>
                 </tr>
+                <tr class="totals-subtotal">
+                  <th scope="row">TOTAL (Tags)</th>
+                  <th class="num" id="tags-total">R$ 0,00</th>
+                </tr>
               </tfoot>
             </table>
           </div>
+          <button type="button" class="btn-secondary" id="export-csv">
+            Exportar CSV
+          </button>
+        </section>
+
+        <section aria-label="Lista de lançamentos" class="panel entries-panel">
+          <h2>Últimos lançamentos</h2>
+          <ul class="entries-list" id="entries-list"></ul>
         </section>
       </main>
     </div>

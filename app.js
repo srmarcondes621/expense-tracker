@@ -27,6 +27,7 @@
     simoneTotal: document.getElementById("simone-total"),
     cartaoSergioTotal: document.getElementById("cartao-sergio-total"),
     santanderTotal: document.getElementById("santander-total"),
+    tagsTotal: document.getElementById("tags-total"),
     grandTotal: document.getElementById("grand-total"),
     entriesList: document.getElementById("entries-list"),
     exportCsv: document.getElementById("export-csv"),
@@ -421,6 +422,10 @@
       els.cartaoSergioTotal.textContent = formatMoney(cartaoSergioSum);
     if (els.santanderTotal)
       els.santanderTotal.textContent = formatMoney(santanderSum);
+    if (els.tagsTotal) {
+      const tagsSum = simoneSum + cartaoSergioSum + santanderSum;
+      els.tagsTotal.textContent = formatMoney(tagsSum);
+    }
     els.grandTotal.textContent = formatMoney(sum);
   }
 
