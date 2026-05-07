@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-07T16:57:40.235Z",
+  "updatedAt": "2026-05-07T16:58:11.469Z",
   "entries": [
     {
       "id": "0ab9e3b1-204f-4a08-9f2a-6f2bf3a4f101",
@@ -97,6 +97,17 @@
       "cycleKey": "2026-04",
       "tags": [
         "Santander"
+      ]
+    },
+    {
+      "id": "273d1132-5855-4599-8272-3c1a775dc10c",
+      "date": "2026-05-07T16:58:11.042Z",
+      "description": "vivo cartao sergio",
+      "amount": 300,
+      "category": "Moradia",
+      "cycleKey": "2026-04",
+      "tags": [
+        "Cartao Sergio"
       ]
     }
   ]
