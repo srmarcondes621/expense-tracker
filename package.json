@@ -3,6 +3,6 @@
   "private": true,
   "description": "Expense tracker UI + Vercel API writing ledger.json to GitHub",
   "engines": {
-    "node": ">=18"
+    "node": "20.x"
   }
 }
