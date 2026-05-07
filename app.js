@@ -73,7 +73,24 @@
 
   /** Rótulo curto para abas em telas estreitas (evita texto longo no scroll horizontal). */
   function formatCycleTabShort(cycleKey) {
-    return cycleKey;
+    const [ys, ms] = cycleKey.split("-").map(Number);
+    const monthNames = [
+      "Janeiro",
+      "Fevereiro",
+      "Março",
+      "Abril",
+      "Maio",
+      "Junho",
+      "Julho",
+      "Agosto",
+      "Setembro",
+      "Outubro",
+      "Novembro",
+      "Dezembro",
+    ];
+    const month = monthNames[(ms || 1) - 1] || cycleKey;
+    const year2 = String(ys || "").slice(-2);
+    return `${month} ${year2}`;
   }
 
   function compactCycleTabs() {
@@ -225,10 +242,11 @@
       btn.className = "cycle-tab";
       btn.setAttribute("role", "tab");
       btn.dataset.cycle = k;
-      const fullLabel = `${k} · ${formatCycleRange(k)}`;
+      const tabLabel = formatCycleTabShort(k);
+      const fullLabel = `${tabLabel} · ${formatCycleRange(k)}`;
       btn.title = fullLabel;
       btn.setAttribute("aria-label", fullLabel);
-      btn.textContent = compactCycleTabs() ? formatCycleTabShort(k) : fullLabel;
+      btn.textContent = tabLabel;
       btn.setAttribute("aria-selected", "false");
       btn.addEventListener("click", () => {
         selectedCycleKey = k;
