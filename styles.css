@@ -397,6 +397,33 @@ body {
   color: var(--accent);
 }
 
+.totals-table tfoot tr.totals-grand th,
+.totals-table tfoot tr.totals-grand .num {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--bubble-text);
+}
+
+.totals-table tfoot tr.totals-tag-row th,
+.totals-table tfoot tr.totals-tag-row .num {
+  font-weight: 700;
+}
+
+.totals-table tfoot tr.totals-tag-simone th,
+.totals-table tfoot tr.totals-tag-simone .num {
+  color: var(--accent);
+}
+
+.totals-table tfoot tr.totals-tag-cartao-sergio th,
+.totals-table tfoot tr.totals-tag-cartao-sergio .num {
+  color: #ffbd59;
+}
+
+.totals-table tfoot tr.totals-tag-santander th,
+.totals-table tfoot tr.totals-tag-santander .num {
+  color: #ff595e;
+}
+
 .entries-panel {
   padding: 1rem;
 }
