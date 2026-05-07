@@ -173,6 +173,27 @@
     return { description, amount };
   }
 
+  function parseExpenseLineWithCurrencyPrefix(line) {
+    const trimmed = String(line).trim();
+    const m = trimmed.match(/R\$\s*([0-9]+(?:[.,][0-9]+)?)/i);
+    if (!m) return null;
+    const amount = parseFloat(String(m[1]).replace(",", "."));
+    if (!Number.isFinite(amount) || amount < 0) return null;
+
+    const start = m.index != null ? m.index : 0;
+    const end = start + m[0].length;
+    const description = `${trimmed.slice(0, start)} ${trimmed.slice(end)}`
+      .replace(/\s+/g, " ")
+      .replace(/^[\s\-:]+|[\s\-:]+$/g, "")
+      .trim();
+    if (!description) return null;
+    return { description, amount };
+  }
+
+  function parseExpenseLineSmart(line) {
+    return parseExpenseLine(line) || parseExpenseLineWithCurrencyPrefix(line);
+  }
+
   function normalizeForMatch(text) {
     return text
       .toLowerCase()
@@ -448,7 +469,7 @@
   }
 
   async function addEntryFromLine(line) {
-    const parsed = parseExpenseLine(line);
+    const parsed = parseExpenseLineSmart(line);
     if (!parsed) {
       showError('Formato inválido. Use: Descrição- valor (ex: Uber- 35,93).');
       return false;
