@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-07T17:20:11.394Z",
+  "updatedAt": "2026-05-07T17:21:05.194Z",
   "entries": [
     {
       "id": "0ab9e3b1-204f-4a08-9f2a-6f2bf3a4f101",
@@ -143,6 +143,17 @@
       "description": "Santander médica vascular: 10 abril",
       "amount": 1500,
       "category": "Outros",
+      "cycleKey": "2026-04",
+      "tags": [
+        "Santander"
+      ]
+    },
+    {
+      "id": "23b68768-30b1-45a2-8c71-45d79dfa3a96",
+      "date": "2026-05-07T17:21:04.896Z",
+      "description": "Mercado Santander",
+      "amount": 236,
+      "category": "Alimentação",
       "cycleKey": "2026-04",
       "tags": [
         "Santander"
