@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-07T16:41:30.593Z",
+  "updatedAt": "2026-05-07T16:52:00.230Z",
   "entries": [
     {
       "id": "0ab9e3b1-204f-4a08-9f2a-6f2bf3a4f101",
@@ -76,6 +76,17 @@
       "category": "Outros",
       "cycleKey": "2026-04",
       "tags": []
+    },
+    {
+      "id": "b34dbdab-0b3a-47a4-b7ec-aed2de202e50",
+      "date": "2026-05-07T16:51:59.914Z",
+      "description": "cetaphil - cartao Sergio",
+      "amount": 143.98,
+      "category": "Outros",
+      "cycleKey": "2026-04",
+      "tags": [
+        "Cartao Sergio"
+      ]
     }
   ]
 }
