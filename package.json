@@ -1,0 +1,8 @@
+{
+  "name": "ari-expense-ledger",
+  "private": true,
+  "description": "Expense tracker UI + Vercel API writing ledger.json to GitHub",
+  "engines": {
+    "node": ">=18"
+  }
+}
