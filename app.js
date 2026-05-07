@@ -313,7 +313,13 @@
       const c = e.category || categoryConfig.fallbackCategory;
       map[c] = (map[c] || 0) + e.amount;
     }
-    return Object.entries(map).sort((a, b) => b[1] - a[1]);
+    return Object.entries(map).sort((a, b) => {
+      const aIsOutros = a[0] === "Outros";
+      const bIsOutros = b[0] === "Outros";
+      if (aIsOutros && !bIsOutros) return 1;
+      if (!aIsOutros && bIsOutros) return -1;
+      return b[1] - a[1];
+    });
   }
 
   function renderConsolidation(entries) {
