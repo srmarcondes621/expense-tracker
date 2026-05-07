@@ -111,33 +111,6 @@
       ]
     },
     {
-      "id": "1bd5a127-3bc3-498c-b8c1-c2fedbe511ee",
-      "date": "2026-05-07T17:18:46.469Z",
-      "description": "médica vascular",
-      "amount": 1500,
-      "category": "Outros",
-      "cycleKey": "2026-04",
-      "tags": []
-    },
-    {
-      "id": "f13893aa-ec0a-4156-ac60-8d6facadae77",
-      "date": "2026-05-07T17:19:21.656Z",
-      "description": "médica vascular: ,00 Cancelar",
-      "amount": 1.5,
-      "category": "Outros",
-      "cycleKey": "2026-04",
-      "tags": []
-    },
-    {
-      "id": "e89bcf0f-5e2b-4a26-89bd-75bf2db25d63",
-      "date": "2026-05-07T17:19:43.153Z",
-      "description": "médica vascular: cancelar",
-      "amount": 1500,
-      "category": "Outros",
-      "cycleKey": "2026-04",
-      "tags": []
-    },
-    {
       "id": "1362af07-cadf-4dca-b5e3-3a8253423f4c",
       "date": "2026-05-07T17:20:11.046Z",
       "description": "Santander médica vascular: 10 abril",
