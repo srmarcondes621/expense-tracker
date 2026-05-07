@@ -35,7 +35,7 @@ function corsHeaders(req) {
  * @param {object} e
  * @returns {object | null}
  */
-function normalizeStoredEntry(e) {
+function normalizeStoredEntry(e, catConfig) {
   if (!e || typeof e !== "object") return null;
   const rawDate = e.date || e.createdAt;
   if (!rawDate) return null;
@@ -54,7 +54,13 @@ function normalizeStoredEntry(e) {
     tags = deriveExpenseTags(desc);
   }
   const rawCategory = String(e.category || "Outros");
-  const category = rawCategory === "Transporte" ? "Uber" : rawCategory;
+  let category = rawCategory;
+  if (category === "Transporte") category = "Uber";
+  if (category === "Saúde") category = "Saude / Farmacia";
+  if (category === "Outros" && catConfig) {
+    const recat = categorize(desc, catConfig);
+    if (recat && recat !== "Outros") category = recat;
+  }
   return {
     id: e.id,
     date: d.toISOString(),
@@ -91,8 +97,9 @@ module.exports = async (req, res) => {
   try {
     if (req.method === "GET") {
       const { ledger } = await readLedger(token, owner, repo, ledgerPath);
+      const catConfig = await readCategoriesConfig(token, owner, repo);
       const normalized = ledger.entries
-        .map(normalizeStoredEntry)
+        .map((e) => normalizeStoredEntry(e, catConfig))
         .filter(Boolean);
       const entries = normalized.sort(
         (a, b) => new Date(b.date) - new Date(a.date)
