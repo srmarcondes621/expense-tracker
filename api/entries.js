@@ -53,12 +53,14 @@ function normalizeStoredEntry(e) {
   } else {
     tags = deriveExpenseTags(desc);
   }
+  const rawCategory = String(e.category || "Outros");
+  const category = rawCategory === "Transporte" ? "Uber" : rawCategory;
   return {
     id: e.id,
     date: d.toISOString(),
     description: desc,
     amount: typeof e.amount === "number" ? e.amount : parseFloat(e.amount),
-    category: String(e.category || "Outros"),
+    category,
     cycleKey,
     tags,
   };
