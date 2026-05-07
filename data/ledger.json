@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-07T18:36:00.000Z",
+  "updatedAt": "2026-05-07T18:40:00.000Z",
   "entries": [
     {
       "id": "0ab9e3b1-204f-4a08-9f2a-6f2bf3a4f101",
@@ -92,7 +92,7 @@
       "id": "9771feda-d162-4409-ae57-c86bfcd64616",
       "date": "2026-05-07T16:57:40.051Z",
       "description": "santander condominio",
-      "amount": 600,
+      "amount": 691.76,
       "category": "Moradia",
       "cycleKey": "2026-04",
       "tags": [
@@ -148,6 +148,17 @@
       "amount": 1225,
       "category": "Prevent",
       "cycleKey": "2026-04",
+      "tags": [
+        "Santander"
+      ]
+    },
+    {
+      "id": "bf5f7f97-81a7-4cdb-89d0-f68b8f2a76b2",
+      "date": "2026-05-18T12:00:00.000Z",
+      "description": "condominio",
+      "amount": 691.76,
+      "category": "Moradia",
+      "cycleKey": "2026-05",
       "tags": [
         "Santander"
       ]
