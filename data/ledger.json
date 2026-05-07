@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-07T16:52:00.230Z",
+  "updatedAt": "2026-05-07T16:57:40.235Z",
   "entries": [
     {
       "id": "0ab9e3b1-204f-4a08-9f2a-6f2bf3a4f101",
@@ -86,6 +86,17 @@
       "cycleKey": "2026-04",
       "tags": [
         "Cartao Sergio"
+      ]
+    },
+    {
+      "id": "9771feda-d162-4409-ae57-c86bfcd64616",
+      "date": "2026-05-07T16:57:40.051Z",
+      "description": "santander condominio",
+      "amount": 600,
+      "category": "Moradia",
+      "cycleKey": "2026-04",
+      "tags": [
+        "Santander"
       ]
     }
   ]
