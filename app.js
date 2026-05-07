@@ -616,6 +616,15 @@
       ev.preventDefault();
       await submitFromComposer();
     });
+    if (els.lineInput) {
+      els.lineInput.addEventListener("keydown", async (ev) => {
+        if (ev.key !== "Enter") return;
+        if (ev.shiftKey || ev.ctrlKey || ev.altKey || ev.metaKey) return;
+        if (ev.isComposing) return;
+        ev.preventDefault();
+        await submitFromComposer();
+      });
+    }
     els.exportCsv.addEventListener("click", exportCsvForSelectedCycle);
 
     try {
