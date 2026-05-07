@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-07T17:18:46.658Z",
+  "updatedAt": "2026-05-07T17:19:21.988Z",
   "entries": [
     {
       "id": "0ab9e3b1-204f-4a08-9f2a-6f2bf3a4f101",
@@ -115,6 +115,15 @@
       "date": "2026-05-07T17:18:46.469Z",
       "description": "médica vascular",
       "amount": 1500,
+      "category": "Outros",
+      "cycleKey": "2026-04",
+      "tags": []
+    },
+    {
+      "id": "f13893aa-ec0a-4156-ac60-8d6facadae77",
+      "date": "2026-05-07T17:19:21.656Z",
+      "description": "médica vascular: ,00 Cancelar",
+      "amount": 1.5,
       "category": "Outros",
       "cycleKey": "2026-04",
       "tags": []
