@@ -253,6 +253,22 @@
     return Array.isArray(e.tags) && e.tags.includes("Simone");
   }
 
+  function renderTagBadges(entry) {
+    if (!Array.isArray(entry.tags) || entry.tags.length === 0) return "";
+    const classByTag = {
+      Simone: "tag-simone",
+      "Cartao Sergio": "tag-cartao-sergio",
+      Santander: "tag-santander",
+    };
+    return entry.tags
+      .map((tag) => {
+        const safeTag = escapeHtml(String(tag));
+        const cls = classByTag[tag] || "tag-generic";
+        return `<span class="tag-pill ${cls}" aria-label="Marcado ${safeTag}">${safeTag}</span>`;
+      })
+      .join("");
+  }
+
   function groupByCategory(entriesInCycle) {
     /** @type {Record<string, number>} */
     const map = {};
@@ -303,12 +319,10 @@
     els.entriesList.innerHTML = "";
     for (const e of sorted.slice(0, 100)) {
       const li = document.createElement("li");
-      const simoneBadge = entryHasSimoneTag(e)
-        ? '<span class="tag-simone" aria-label="Marcado Simone">Simone</span>'
-        : "";
+      const badges = renderTagBadges(e);
       li.innerHTML = `
         <span class="desc">${escapeHtml(e.description)}</span>
-        <span class="cat">${simoneBadge}${escapeHtml(e.category)} · ${e.cycleKey}</span>
+        <span class="cat">${badges}${escapeHtml(e.category)} · ${e.cycleKey}</span>
         <span class="amt">${formatMoney(e.amount)}</span>
         <span class="when">${escapeHtml(formatDateTime(getEntryDate(e)))}</span>
       `;

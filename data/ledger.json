@@ -1,5 +1,60 @@
 {
   "version": 1,
-  "updatedAt": null,
-  "entries": []
+  "updatedAt": "2026-05-07T16:24:00.000Z",
+  "entries": [
+    {
+      "id": "0ab9e3b1-204f-4a08-9f2a-6f2bf3a4f101",
+      "date": "2026-05-04T20:01:30.000Z",
+      "description": "Supermercado",
+      "amount": 181.54,
+      "category": "Alimentação",
+      "cycleKey": "2026-04",
+      "tags": ["Simone"]
+    },
+    {
+      "id": "1bcac4c2-3150-4b19-a03b-7a3cf4b5f202",
+      "date": "2026-05-04T20:01:30.000Z",
+      "description": "Glucerma",
+      "amount": 175.77,
+      "category": "Outros",
+      "cycleKey": "2026-04",
+      "tags": ["Simone"]
+    },
+    {
+      "id": "2cdbd5d3-4261-4c2a-b14c-8b4df5c6a303",
+      "date": "2026-05-05T23:53:04.000Z",
+      "description": "Creatina",
+      "amount": 54.5,
+      "category": "Outros",
+      "cycleKey": "2026-04",
+      "tags": ["Simone"]
+    },
+    {
+      "id": "3dece6e4-5372-4d3b-c25d-9c5ef6d7b404",
+      "date": "2026-05-06T14:17:11.000Z",
+      "description": "Magnésio",
+      "amount": 48.92,
+      "category": "Saúde",
+      "cycleKey": "2026-04",
+      "tags": ["Simone"]
+    },
+    {
+      "id": "4efdf7f5-6483-4e4c-d36e-ad6f07e8c505",
+      "date": "2026-05-07T11:21:01.000Z",
+      "description": "Uber",
+      "amount": 35.93,
+      "category": "Transporte",
+      "cycleKey": "2026-04",
+      "tags": ["Simone"]
+    },
+    {
+      "id": "5f0e0806-7594-4f5d-e47f-be7018f9d606",
+      "date": "2026-05-07T12:17:19.000Z",
+      "description": "Uber",
+      "amount": 36,
+      "category": "Transporte",
+      "cycleKey": "2026-04",
+      "tags": ["Simone"]
+    }
+  ]
 }

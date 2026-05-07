@@ -75,6 +75,11 @@ Copie de [`.env.example`](.env.example):
 - Se a descrição contiver **`cartao sergio`** (aceitando maiúsculas/minúsculas e acentos como `cartão sérgio` ou `cartäo sergio`), o lançamento recebe a tag `Cartao Sergio`.
 - A detecção é feita no servidor (mesma lógica das demais tags).
 
+### Tag Santander
+
+- Se a descrição contiver **`conta`** ou **`santander`** (qualquer capitalização), o lançamento recebe a tag `Santander`.
+- A UI mostra badge para `Simone`, `Cartao Sergio` e `Santander` na lista de lançamentos.
+
 ### Formato da linha
 
 - O **último** `-` separa descrição e valor (ex.: `Nome longo - item- 12,50`).

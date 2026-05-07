@@ -438,7 +438,7 @@ body {
   font-size: 0.8rem;
 }
 
-.tag-simone {
+.tag-pill {
   display: inline-block;
   font-size: 0.65rem;
   font-weight: 700;
@@ -447,10 +447,28 @@ body {
   padding: 0.2rem 0.45rem;
   margin-right: 0.35rem;
   border-radius: 6px;
-  background: rgba(0, 168, 132, 0.22);
-  color: var(--accent);
   vertical-align: middle;
   line-height: 1.2;
+}
+
+.tag-simone {
+  background: rgba(0, 168, 132, 0.22);
+  color: var(--accent);
+}
+
+.tag-cartao-sergio {
+  background: rgba(255, 189, 89, 0.2);
+  color: #ffbd59;
+}
+
+.tag-santander {
+  background: rgba(255, 89, 94, 0.2);
+  color: #ff595e;
+}
+
+.tag-generic {
+  background: rgba(134, 150, 160, 0.2);
+  color: #c7d1d8;
 }
 
 .entries-list .amt {
