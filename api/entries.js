@@ -10,7 +10,15 @@ const {
   appendLedgerEntries,
 } = require("../lib/github-ledger");
 const { parseWhatsAppBulk } = require("../lib/whatsapp-bulk");
-const REPEAT_KEYS = ["condominio", "guardioes", "vivo", "prevent"];
+const REPEAT_RULES = {
+  condominio: { maxPerCycle: 2, fixedDays: [18, 7] },
+  guardioes: { maxPerCycle: 1 },
+  vivo: { maxPerCycle: 1 },
+  prevent: { maxPerCycle: 1 },
+  congas: { maxPerCycle: 1 },
+  luz: { maxPerCycle: 1 },
+};
+const REPEAT_KEYS = Object.keys(REPEAT_RULES);
 
 function corsHeaders(req) {
   const allowed = process.env.ALLOWED_ORIGINS || "";
@@ -109,6 +117,13 @@ function previousCycleKey(cycleKey) {
   return `${y}-${String(m).padStart(2, "0")}`;
 }
 
+function buildCycleDateFromDay(cycleKey, day) {
+  const [ys, ms] = String(cycleKey).split("-").map(Number);
+  if (!Number.isFinite(ys) || !Number.isFinite(ms)) return null;
+  if (day >= 10) return new Date(ys, ms - 1, day, 12, 0, 0, 0);
+  return new Date(ys, ms, day, 12, 0, 0, 0);
+}
+
 module.exports = async (req, res) => {
   const c = corsHeaders(req);
   for (const [k, v] of Object.entries(c)) {
@@ -173,49 +188,90 @@ module.exports = async (req, res) => {
         const currentCycle = getCycleKey(new Date());
         const prevCycle = previousCycleKey(currentCycle);
 
-        const currentKeys = new Set(
-          normalized
-            .filter((e) => e.cycleKey === currentCycle)
-            .map((e) => getRepeatKey(e.description))
-            .filter(Boolean)
-        );
+        const currentByKey = new Map();
+        for (const e of normalized) {
+          if (e.cycleKey !== currentCycle) continue;
+          const key = getRepeatKey(e.description);
+          if (!key) continue;
+          const list = currentByKey.get(key) || [];
+          list.push(e);
+          currentByKey.set(key, list);
+        }
 
-        const latestPrevByKey = new Map();
+        const prevByKey = new Map();
         for (const e of normalized) {
           if (e.cycleKey !== prevCycle) continue;
           const key = getRepeatKey(e.description);
           if (!key) continue;
-          const prev = latestPrevByKey.get(key);
-          if (!prev || new Date(e.date) > new Date(prev.date)) {
-            latestPrevByKey.set(key, e);
-          }
+          const list = prevByKey.get(key) || [];
+          list.push(e);
+          prevByKey.set(key, list);
         }
 
         const toAdd = [];
         const skippedKeys = [];
         for (const key of REPEAT_KEYS) {
-          const src = latestPrevByKey.get(key);
-          if (!src) continue;
-          if (currentKeys.has(key)) {
+          const rule = REPEAT_RULES[key] || { maxPerCycle: 1 };
+          const srcList = (prevByKey.get(key) || [])
+            .slice()
+            .sort((a, b) => new Date(b.date) - new Date(a.date))
+            .slice(0, rule.maxPerCycle)
+            .sort((a, b) => new Date(a.date) - new Date(b.date));
+          if (!srcList.length) continue;
+
+          const currList = (currentByKey.get(key) || []).slice();
+          if (key === "condominio" && Array.isArray(rule.fixedDays)) {
+            const byDay = new Set(
+              currList.map((e) => {
+                const d = new Date(e.date);
+                return Number.isNaN(d.getTime()) ? -1 : d.getDate();
+              })
+            );
+            const src = srcList[srcList.length - 1];
+            for (const day of rule.fixedDays) {
+              if (byDay.has(day)) continue;
+              const date = buildCycleDateFromDay(currentCycle, day) || new Date();
+              toAdd.push({
+                id: randomUUID(),
+                date: date.toISOString(),
+                description: src.description,
+                amount: Math.round(src.amount * 100) / 100,
+                category: src.category,
+                cycleKey: currentCycle,
+                tags:
+                  Array.isArray(src.tags) && src.tags.length
+                    ? src.tags
+                    : deriveExpenseTags(src.description),
+              });
+            }
+            if (byDay.has(18) && byDay.has(7)) skippedKeys.push(key);
+            continue;
+          }
+
+          const needed = Math.max(0, srcList.length - currList.length);
+          if (needed <= 0) {
             skippedKeys.push(key);
             continue;
           }
 
-          const shifted = new Date(src.date);
-          shifted.setMonth(shifted.getMonth() + 1);
-          const date = getCycleKey(shifted) === currentCycle ? shifted : new Date();
-          toAdd.push({
-            id: randomUUID(),
-            date: date.toISOString(),
-            description: src.description,
-            amount: Math.round(src.amount * 100) / 100,
-            category: src.category,
-            cycleKey: currentCycle,
-            tags:
-              Array.isArray(src.tags) && src.tags.length
-                ? src.tags
-                : deriveExpenseTags(src.description),
-          });
+          const srcToCopy = srcList.slice(-needed);
+          for (const src of srcToCopy) {
+            const shifted = new Date(src.date);
+            shifted.setMonth(shifted.getMonth() + 1);
+            const date = getCycleKey(shifted) === currentCycle ? shifted : new Date();
+            toAdd.push({
+              id: randomUUID(),
+              date: date.toISOString(),
+              description: src.description,
+              amount: Math.round(src.amount * 100) / 100,
+              category: src.category,
+              cycleKey: currentCycle,
+              tags:
+                Array.isArray(src.tags) && src.tags.length
+                  ? src.tags
+                  : deriveExpenseTags(src.description),
+            });
+          }
         }
 
         if (toAdd.length) {

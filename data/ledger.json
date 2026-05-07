@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-07T18:40:00.000Z",
+  "updatedAt": "2026-05-07T18:59:00.000Z",
   "entries": [
     {
       "id": "0ab9e3b1-204f-4a08-9f2a-6f2bf3a4f101",
@@ -102,7 +102,7 @@
     {
       "id": "273d1132-5855-4599-8272-3c1a775dc10c",
       "date": "2026-05-07T16:58:11.042Z",
-      "description": "vivo cartao sergio",
+      "description": "vivo cabo",
       "amount": 300,
       "category": "Moradia",
       "cycleKey": "2026-04",
@@ -147,6 +147,39 @@
       "description": "Prevent",
       "amount": 1225,
       "category": "Prevent",
+      "cycleKey": "2026-04",
+      "tags": [
+        "Santander"
+      ]
+    },
+    {
+      "id": "703c88e5-29ff-4972-b6e8-bf97b4b9e93f",
+      "date": "2026-04-23T12:00:00.000Z",
+      "description": "congas",
+      "amount": 62.6,
+      "category": "Congas Agua",
+      "cycleKey": "2026-04",
+      "tags": [
+        "Santander"
+      ]
+    },
+    {
+      "id": "70931f4d-5275-4c8e-ac5a-31f3645c2ef8",
+      "date": "2026-04-20T12:00:00.000Z",
+      "description": "luz",
+      "amount": 82,
+      "category": "Luz",
+      "cycleKey": "2026-04",
+      "tags": [
+        "Santander"
+      ]
+    },
+    {
+      "id": "13ddf273-94b6-4a61-95b7-cf729fcbf605",
+      "date": "2026-04-27T12:00:00.000Z",
+      "description": "vivo movel",
+      "amount": 75,
+      "category": "Moradia",
       "cycleKey": "2026-04",
       "tags": [
         "Santander"

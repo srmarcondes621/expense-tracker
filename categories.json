@@ -10,7 +10,7 @@
     },
     {
       "name": "Saude / Farmacia",
-      "keywords": ["farmácia", "farmacia", "remédio", "remedio", "magnésio", "magnesio", "vitamina", "suplemento", "suplementos", "glucerma", "creatina", "fralda", "cetaphil"]
+      "keywords": ["farmácia", "farmacia", "remédio", "remedio", "magnésio", "magnesio", "vitamina", "suplemento", "suplementos", "glucerma", "creatina", "fralda", "cetaphil", "whey", "wey"]
     },
     {
       "name": "Mercado",
@@ -22,7 +22,11 @@
     },
     {
       "name": "Lazer / Ingressos",
-      "keywords": ["ingresso", "ingressos", "teatro", "show", "shows"]
+      "keywords": ["ingresso", "ingressos", "teatro"]
+    },
+    {
+      "name": "Lazer / Show",
+      "keywords": ["show", "shows"]
     },
     {
       "name": "Lazer / Viagens",
@@ -33,8 +37,16 @@
       "keywords": ["lazer"]
     },
     {
+      "name": "Congas Agua",
+      "keywords": ["congas", "agua", "água"]
+    },
+    {
+      "name": "Luz",
+      "keywords": ["luz"]
+    },
+    {
       "name": "Moradia",
-      "keywords": ["aluguel", "condomínio", "condominio", "luz", "água", "agua", "gás", "gas", "internet", "celular", "tv a cabo", "tvcabo", "net", "vivo", "neguinha"]
+      "keywords": ["aluguel", "condomínio", "condominio", "gás", "gas", "internet", "celular", "tv a cabo", "tvcabo", "net", "vivo", "neguinha"]
     },
     {
       "name": "Guardiões",
