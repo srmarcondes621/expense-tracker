@@ -31,6 +31,7 @@
     grandTotal: document.getElementById("grand-total"),
     entriesList: document.getElementById("entries-list"),
     exportCsv: document.getElementById("export-csv"),
+    repeatBtn: document.getElementById("repeat-btn"),
     dataStatus: document.getElementById("data-status"),
     submitBtn: null,
   };
@@ -459,6 +460,7 @@
 
   function setLoading(loading) {
     if (els.submitBtn) els.submitBtn.disabled = loading;
+    if (els.repeatBtn) els.repeatBtn.disabled = loading;
     if (els.lineInput) els.lineInput.disabled = loading;
   }
 
@@ -567,6 +569,44 @@
     }
   }
 
+  async function repeatRecurringFromPreviousCycle() {
+    setLoading(true);
+    showError("");
+    try {
+      const res = await fetch(apiUrl("/api/entries"), {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ action: "repeatRecurring" }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        showError(data.error || `Erro ao repetir (${res.status})`);
+        return false;
+      }
+      const added = data.addedCount || 0;
+      const skipped = Array.isArray(data.skippedKeys) ? data.skippedKeys.length : 0;
+      addMessageBubble(
+        `${added} lançamentos repetidos`,
+        `${data.sourceCycle || "ciclo anterior"} -> ${data.targetCycle || "ciclo atual"}${skipped ? ` · ${skipped} já existentes` : ""}`
+      );
+      setDataStatus(
+        `${added} repetidos${skipped ? `, ${skipped} já existentes` : ""}`,
+        "ok"
+      );
+      await refreshEntries();
+      return true;
+    } catch (e) {
+      showError(e.message || "Falha de rede");
+      setDataStatus(`Erro: ${e.message}`, "err");
+      return false;
+    } finally {
+      setLoading(false);
+    }
+  }
+
   function exportCsvForSelectedCycle() {
     const cycle = getSelectedCycle();
     const inCycle = cachedEntries.filter((e) => e.cycleKey === cycle);
@@ -633,6 +673,9 @@
         ev.preventDefault();
         await submitFromComposer();
       });
+    }
+    if (els.repeatBtn) {
+      els.repeatBtn.addEventListener("click", repeatRecurringFromPreviousCycle);
     }
     els.exportCsv.addEventListener("click", exportCsvForSelectedCycle);
 

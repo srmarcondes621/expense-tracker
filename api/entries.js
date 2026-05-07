@@ -10,6 +10,7 @@ const {
   appendLedgerEntries,
 } = require("../lib/github-ledger");
 const { parseWhatsAppBulk } = require("../lib/whatsapp-bulk");
+const REPEAT_KEYS = ["condominio", "guardioes", "vivo", "prevent"];
 
 function corsHeaders(req) {
   const allowed = process.env.ALLOWED_ORIGINS || "";
@@ -82,6 +83,32 @@ function normalizeStoredEntry(e, catConfig) {
   };
 }
 
+function normalizeText(text) {
+  return String(text || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
+function getRepeatKey(description) {
+  const t = normalizeText(description);
+  for (const k of REPEAT_KEYS) {
+    if (t.includes(k)) return k;
+  }
+  return null;
+}
+
+function previousCycleKey(cycleKey) {
+  const [ys, ms] = String(cycleKey).split("-").map(Number);
+  let y = ys;
+  let m = ms - 1;
+  if (m < 1) {
+    m = 12;
+    y -= 1;
+  }
+  return `${y}-${String(m).padStart(2, "0")}`;
+}
+
 module.exports = async (req, res) => {
   const c = corsHeaders(req);
   for (const [k, v] of Object.entries(c)) {
@@ -134,6 +161,82 @@ module.exports = async (req, res) => {
         } catch {
           body = {};
         }
+      }
+
+      if (body.action === "repeatRecurring") {
+        const { ledger } = await readLedger(token, owner, repo, ledgerPath);
+        const catConfig = await readCategoriesConfig(token, owner, repo);
+        const normalized = ledger.entries
+          .map((e) => normalizeStoredEntry(e, catConfig))
+          .filter(Boolean);
+
+        const currentCycle = getCycleKey(new Date());
+        const prevCycle = previousCycleKey(currentCycle);
+
+        const currentKeys = new Set(
+          normalized
+            .filter((e) => e.cycleKey === currentCycle)
+            .map((e) => getRepeatKey(e.description))
+            .filter(Boolean)
+        );
+
+        const latestPrevByKey = new Map();
+        for (const e of normalized) {
+          if (e.cycleKey !== prevCycle) continue;
+          const key = getRepeatKey(e.description);
+          if (!key) continue;
+          const prev = latestPrevByKey.get(key);
+          if (!prev || new Date(e.date) > new Date(prev.date)) {
+            latestPrevByKey.set(key, e);
+          }
+        }
+
+        const toAdd = [];
+        const skippedKeys = [];
+        for (const key of REPEAT_KEYS) {
+          const src = latestPrevByKey.get(key);
+          if (!src) continue;
+          if (currentKeys.has(key)) {
+            skippedKeys.push(key);
+            continue;
+          }
+
+          const shifted = new Date(src.date);
+          shifted.setMonth(shifted.getMonth() + 1);
+          const date = getCycleKey(shifted) === currentCycle ? shifted : new Date();
+          toAdd.push({
+            id: randomUUID(),
+            date: date.toISOString(),
+            description: src.description,
+            amount: Math.round(src.amount * 100) / 100,
+            category: src.category,
+            cycleKey: currentCycle,
+            tags:
+              Array.isArray(src.tags) && src.tags.length
+                ? src.tags
+                : deriveExpenseTags(src.description),
+          });
+        }
+
+        if (toAdd.length) {
+          await appendLedgerEntries({
+            token,
+            owner,
+            repo,
+            ledgerPath,
+            entries: toAdd,
+          });
+        }
+
+        return res.status(200).json({
+          ok: true,
+          action: "repeatRecurring",
+          addedCount: toAdd.length,
+          entries: toAdd,
+          skippedKeys,
+          sourceCycle: prevCycle,
+          targetCycle: currentCycle,
+        });
       }
 
       const bulkRaw = body.bulk;
