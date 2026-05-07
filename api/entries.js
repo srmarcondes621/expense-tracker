@@ -57,9 +57,19 @@ function normalizeStoredEntry(e, catConfig) {
   let category = rawCategory;
   if (category === "Transporte") category = "Uber";
   if (category === "Saúde") category = "Saude / Farmacia";
-  if (category === "Outros" && catConfig) {
+  if (category === "Alimentação") category = "Mercado";
+  if (category === "Lazer") category = "Lazer / Outros";
+  if (
+    catConfig &&
+    (rawCategory === "Outros" ||
+      rawCategory === "Saúde" ||
+      rawCategory === "Saude / Farmacia" ||
+      rawCategory === "Lazer")
+  ) {
     const recat = categorize(desc, catConfig);
-    if (recat && recat !== "Outros") category = recat;
+    if (recat && recat !== "Outros") {
+      category = recat;
+    }
   }
   return {
     id: e.id,

@@ -5,20 +5,36 @@
       "keywords": ["uber", "taxi", "99", "ônibus", "onibus", "metrô", "metro", "gasolina", "combustível", "combustivel", "estacionamento", "pedágio", "pedagio"]
     },
     {
-      "name": "Saude / Farmacia",
-      "keywords": ["farmácia", "farmacia", "remédio", "remedio", "magnésio", "magnesio", "vitamina", "suplemento", "suplementos", "médico", "medico", "médica", "medica", "consulta", "exame", "hospital", "dentista", "glucerma", "creatina", "fralda", "cetaphil"]
+      "name": "Saude / Medicos",
+      "keywords": ["médico", "medico", "médica", "medica", "consulta", "exame", "hospital", "dentista"]
     },
     {
-      "name": "Alimentação",
+      "name": "Saude / Farmacia",
+      "keywords": ["farmácia", "farmacia", "remédio", "remedio", "magnésio", "magnesio", "vitamina", "suplemento", "suplementos", "glucerma", "creatina", "fralda", "cetaphil"]
+    },
+    {
+      "name": "Mercado",
       "keywords": ["supermercado", "mercado", "padaria", "ifood", "rappi", "restaurante", "lanche", "pizza", "café", "cafe"]
     },
     {
-      "name": "Lazer",
-      "keywords": ["ingresso", "ingressos", "teatro", "show", "shows", "almoço", "almoco", "jantar", "jantares", "viagem", "viagens"]
+      "name": "Lazer / Restaurante",
+      "keywords": ["almoço", "almoco", "jantar", "jantares", "restaurante", "lanche", "pizza", "café", "cafe"]
+    },
+    {
+      "name": "Lazer / Ingressos",
+      "keywords": ["ingresso", "ingressos", "teatro", "show", "shows"]
+    },
+    {
+      "name": "Lazer / Viagens",
+      "keywords": ["viagem", "viagens"]
+    },
+    {
+      "name": "Lazer / Outros",
+      "keywords": ["lazer"]
     },
     {
       "name": "Moradia",
-      "keywords": ["aluguel", "condomínio", "condominio", "luz", "água", "agua", "gás", "gas", "internet", "celular", "tv a cabo", "tvcabo", "net", "vivo"]
+      "keywords": ["aluguel", "condomínio", "condominio", "luz", "água", "agua", "gás", "gas", "internet", "celular", "tv a cabo", "tvcabo", "net", "vivo", "neguinha"]
     },
     {
       "name": "Outros",
