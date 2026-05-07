@@ -25,6 +25,8 @@
     cycleTabs: document.getElementById("cycle-tabs"),
     totalsBody: document.getElementById("totals-body"),
     simoneTotal: document.getElementById("simone-total"),
+    cartaoSergioTotal: document.getElementById("cartao-sergio-total"),
+    santanderTotal: document.getElementById("santander-total"),
     grandTotal: document.getElementById("grand-total"),
     entriesList: document.getElementById("entries-list"),
     exportCsv: document.getElementById("export-csv"),
@@ -284,8 +286,8 @@
     });
   }
 
-  function entryHasSimoneTag(e) {
-    return Array.isArray(e.tags) && e.tags.includes("Simone");
+  function entryHasTag(entry, tagName) {
+    return Array.isArray(entry.tags) && entry.tags.includes(tagName);
   }
 
   function renderTagBadges(entry) {
@@ -334,10 +336,18 @@
     }
 
     let simoneSum = 0;
+    let cartaoSergioSum = 0;
+    let santanderSum = 0;
     for (const e of inCycle) {
-      if (entryHasSimoneTag(e)) simoneSum += e.amount;
+      if (entryHasTag(e, "Simone")) simoneSum += e.amount;
+      if (entryHasTag(e, "Cartao Sergio")) cartaoSergioSum += e.amount;
+      if (entryHasTag(e, "Santander")) santanderSum += e.amount;
     }
     if (els.simoneTotal) els.simoneTotal.textContent = formatMoney(simoneSum);
+    if (els.cartaoSergioTotal)
+      els.cartaoSergioTotal.textContent = formatMoney(cartaoSergioSum);
+    if (els.santanderTotal)
+      els.santanderTotal.textContent = formatMoney(santanderSum);
     els.grandTotal.textContent = formatMoney(sum);
   }
 
