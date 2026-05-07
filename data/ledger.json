@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-07T16:58:11.469Z",
+  "updatedAt": "2026-05-07T17:18:46.658Z",
   "entries": [
     {
       "id": "0ab9e3b1-204f-4a08-9f2a-6f2bf3a4f101",
@@ -109,6 +109,15 @@
       "tags": [
         "Cartao Sergio"
       ]
+    },
+    {
+      "id": "1bd5a127-3bc3-498c-b8c1-c2fedbe511ee",
+      "date": "2026-05-07T17:18:46.469Z",
+      "description": "médica vascular",
+      "amount": 1500,
+      "category": "Outros",
+      "cycleKey": "2026-04",
+      "tags": []
     }
   ]
 }
