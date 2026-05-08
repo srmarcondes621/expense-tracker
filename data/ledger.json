@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-07T18:59:00.000Z",
+  "updatedAt": "2026-05-08T13:02:07.975Z",
   "entries": [
     {
       "id": "0ab9e3b1-204f-4a08-9f2a-6f2bf3a4f101",
@@ -192,6 +192,17 @@
       "amount": 691.76,
       "category": "Moradia",
       "cycleKey": "2026-05",
+      "tags": [
+        "Santander"
+      ]
+    },
+    {
+      "id": "f4ce6430-1136-415d-a3f9-342a7691085e",
+      "date": "2026-05-08T13:02:07.761Z",
+      "description": "Neguinha",
+      "amount": 1.53,
+      "category": "Moradia",
+      "cycleKey": "2026-04",
       "tags": [
         "Santander"
       ]
