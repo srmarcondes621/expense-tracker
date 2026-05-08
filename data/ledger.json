@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-08T13:02:07.975Z",
+  "updatedAt": "2026-05-08T13:03:08.705Z",
   "entries": [
     {
       "id": "0ab9e3b1-204f-4a08-9f2a-6f2bf3a4f101",
@@ -206,6 +206,15 @@
       "tags": [
         "Santander"
       ]
+    },
+    {
+      "id": "b619354a-4c37-4976-a11b-c01093e057a0",
+      "date": "2026-05-08T13:03:08.336Z",
+      "description": "Mercado",
+      "amount": 185,
+      "category": "Mercado",
+      "cycleKey": "2026-04",
+      "tags": []
     }
   ]
 }
