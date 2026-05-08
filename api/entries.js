@@ -68,6 +68,7 @@ function normalizeStoredEntry(e, catConfig) {
   if (category === "Saúde") category = "Saude / Farmacia";
   if (category === "Alimentação") category = "Mercado";
   if (category === "Lazer") category = "Lazer / Outros";
+  if (category === "Congas Agua") category = "Comgas";
   if (
     catConfig &&
     (rawCategory === "Outros" ||
