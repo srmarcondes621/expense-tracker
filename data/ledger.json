@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-08T13:03:08.705Z",
+  "updatedAt": "2026-05-08T15:14:41.875Z",
   "entries": [
     {
       "id": "0ab9e3b1-204f-4a08-9f2a-6f2bf3a4f101",
@@ -215,6 +215,17 @@
       "category": "Mercado",
       "cycleKey": "2026-04",
       "tags": []
+    },
+    {
+      "id": "5d32d9a3-d1c0-4cb0-b8de-33f6f1e2c092",
+      "date": "2026-05-08T15:14:41.660Z",
+      "description": "Neguinha",
+      "amount": 1530,
+      "category": "Moradia",
+      "cycleKey": "2026-04",
+      "tags": [
+        "Santander"
+      ]
     }
   ]
 }
