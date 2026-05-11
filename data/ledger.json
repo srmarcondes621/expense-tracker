@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-08T23:32:19.627Z",
+  "updatedAt": "2026-05-11T18:53:53.186Z",
   "entries": [
     {
       "id": "0ab9e3b1-204f-4a08-9f2a-6f2bf3a4f101",
@@ -247,6 +247,17 @@
       "amount": 50,
       "category": "Uber",
       "cycleKey": "2026-04",
+      "tags": [
+        "Cartao Sergio"
+      ]
+    },
+    {
+      "id": "8b84d9ad-3c63-43fe-9bb5-537a764136fe",
+      "date": "2026-05-11T18:53:52.985Z",
+      "description": "Whey",
+      "amount": 289.9,
+      "category": "Saude / Farmacia",
+      "cycleKey": "2026-05",
       "tags": [
         "Cartao Sergio"
       ]
