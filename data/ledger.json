@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-11T18:53:53.186Z",
+  "updatedAt": "2026-05-11T19:38:42.983Z",
   "entries": [
     {
       "id": "0ab9e3b1-204f-4a08-9f2a-6f2bf3a4f101",
@@ -260,6 +260,17 @@
       "cycleKey": "2026-05",
       "tags": [
         "Simone"
+      ]
+    },
+    {
+      "id": "e5e4edd0-6f1f-4972-845a-e0d7635a5eec",
+      "date": "2026-05-11T19:38:42.669Z",
+      "description": "tira diabetes cartao Sergio",
+      "amount": 69.89,
+      "category": "Outros",
+      "cycleKey": "2026-05",
+      "tags": [
+        "Cartao Sergio"
       ]
     }
   ]
