@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-11T19:38:42.983Z",
+  "updatedAt": "2026-05-11T19:40:56.919Z",
   "entries": [
     {
       "id": "0ab9e3b1-204f-4a08-9f2a-6f2bf3a4f101",
@@ -272,6 +272,26 @@
       "tags": [
         "Cartao Sergio"
       ]
+    },
+    {
+      "id": "cc90c2fe-5478-4662-ac10-6b302779c810",
+      "date": "2026-05-11T19:40:56.751Z",
+      "description": "Cartao SergioOutros · 2026",
+      "amount": 5,
+      "category": "Outros",
+      "cycleKey": "2026-05",
+      "tags": [
+        "Cartao Sergio"
+      ]
+    },
+    {
+      "id": "859368ec-6917-4f03-a3aa-6b7534661e3f",
+      "date": "2026-05-11T19:40:56.752Z",
+      "description": "R$",
+      "amount": 69.89,
+      "category": "Outros",
+      "cycleKey": "2026-05",
+      "tags": []
     }
   ]
 }
