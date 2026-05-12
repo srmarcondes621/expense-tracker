@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-11T19:40:56.919Z",
+  "updatedAt": "2026-05-12T18:51:12.110Z",
   "entries": [
     {
       "id": "0ab9e3b1-204f-4a08-9f2a-6f2bf3a4f101",
@@ -268,6 +268,17 @@
       "description": "tira diabetes cartao Sergio",
       "amount": 69.89,
       "category": "Saude / Farmacia",
+      "cycleKey": "2026-05",
+      "tags": [
+        "Cartao Sergio"
+      ]
+    },
+    {
+      "id": "e123c7f0-e5e0-47a8-9b12-f69aa9bfa30e",
+      "date": "2026-05-12T18:51:11.897Z",
+      "description": "Uber",
+      "amount": 23.94,
+      "category": "Uber",
       "cycleKey": "2026-05",
       "tags": [
         "Cartao Sergio"
