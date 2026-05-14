@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-12T18:51:47.325Z",
+  "updatedAt": "2026-05-14T15:55:37.684Z",
   "entries": [
     {
       "id": "0ab9e3b1-204f-4a08-9f2a-6f2bf3a4f101",
@@ -289,6 +289,17 @@
       "date": "2026-05-12T18:51:47.039Z",
       "description": "Uber",
       "amount": 16.65,
+      "category": "Uber",
+      "cycleKey": "2026-05",
+      "tags": [
+        "Cartao Sergio"
+      ]
+    },
+    {
+      "id": "0ac6fa07-f8af-431a-a232-0e1ff0c751d4",
+      "date": "2026-05-14T15:55:37.466Z",
+      "description": "Uber",
+      "amount": 19.32,
       "category": "Uber",
       "cycleKey": "2026-05",
       "tags": [
