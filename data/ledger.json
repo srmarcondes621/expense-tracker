@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-18T17:14:31.863Z",
+  "updatedAt": "2026-05-18T19:03:26.576Z",
   "entries": [
     {
       "id": "0ab9e3b1-204f-4a08-9f2a-6f2bf3a4f101",
@@ -323,6 +323,17 @@
       "description": "Uber",
       "amount": 28.96,
       "category": "Uber",
+      "cycleKey": "2026-05",
+      "tags": [
+        "Cartao Sergio"
+      ]
+    },
+    {
+      "id": "c113657f-614b-48bc-a951-5e8731bc69ca",
+      "date": "2026-05-18T19:03:26.336Z",
+      "description": "Fralda",
+      "amount": 188,
+      "category": "Saude / Farmacia",
       "cycleKey": "2026-05",
       "tags": [
         "Cartao Sergio"
